@@ -1,9 +1,8 @@
-# Taller 1
+# Taller 2
 
-Aplicación que permite consultar la información de películas almacenadas en la API 
-https://www.omdbapi.com/ por medio del nombre de las mismas, el proyecto incluye 
-un servicio de cache el cual almacena los datos de las películas con el fin de 
-evitar llamados constantes a la API
+Aplicación que permite leer diferentes archivos locales, entre ellos css, HTML y JavaScript por medio de un servidor web teniendo como base de búsqueda el path suministrado. 
+Dentro de esta se puede acceder aun a la API de consulta de películas.
+
 
 ## Getting Started
 
@@ -21,46 +20,24 @@ Maven: Software que gestiona proyectos java
 Clonamos el repositorio
 
 ```
-git clone https://github.com/ser0710/tallerArep1.git
+git clone https://github.com/ser0710/tallerArep2.git
 ```
 
 Entramos en la carpeta donde se encuentra el pom.xml
 y ejecutamos
 
 ```
-mvn clean package exec:java -D"exec.mainClass"="edu.escuelaing.arep.app.HttpServer"
+mvn clean package exec:java -D"exec.mainClass"="edu.escuelaing.arep.app.app"
 ```
 
 Una vez veamos el mensaje de "Listo para recbir ..."
-entramos al buscador de preferencia y entramos al link
-http://localhost:35000 alli podremos ingresar
-el nombre de una película
+entramos al buscador de preferencia aqui podremos decidir que servicio consumir
+si buscamos la url http://localhost:35000/web podremos acceder al buscador de 
+peliculas, en caso de querer ver el archivo css acederemos a http://localhost:35000/css
+para el javascript usaremos http://localhost:35000/js, finalmente para visualizar
+una imagen usamos http://localhost:35000/img. En caso de agregar una url no 
+valida veremos un mensaje de pagina no encontrada.
 
-
-## Running the tests
-
-Para correr los tests basta con emplear el comando
-
-```
-mvn test
-```
-
-### Tests
-
-Se cuenta con 2 tests
-
-* El primero permite verificar el correcto funcionamiento del 
-cache
-* El segundo permite verificar que al momento de realizar 
-la consulta a la API, esta arroje la respuesta esperada
-
-
-### And coding style tests
-
-Principalmente los tests se centran en el correcto funcionamiento 
-del cache, que este no guarde duplicados de la información solicitada 
-y también se enfocan en el llamado a la API, que este efectivamente 
-retorne los datos solicitados.
 
 ## Built With
 
@@ -76,14 +53,3 @@ version 1.0
 Sergio Andres Rozo Pulido
 
 
-## Extra description
-
-* Extensibilidad: Principalmente se podría tener criterios 
-extras en la búsqueda de la película, para ello basta 
-con cambiar el link ya sea agregando o quitan lo que sea 
-necesario, en caso dado de querer agregar cosas al 
-html basta con cambiar el string.
-* Patrones: Principalmente el patrón fachada, 
-gracias al cache que recibe toda la información 
-que se solicita y este analiza si ya cuenta con 
-dicha información o si es necesario consultar a la API

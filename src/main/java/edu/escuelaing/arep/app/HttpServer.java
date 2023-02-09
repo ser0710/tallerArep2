@@ -14,6 +14,8 @@ public class HttpServer {
     private static HttpServer _instance = new HttpServer();
 
     private static Map<String, Services> services = new HashMap<>();
+
+    private static OutputStream outputStream = null;
     public static HttpServer getInstance(){
         return _instance;
     }
@@ -55,6 +57,7 @@ public class HttpServer {
                             clientSocket.getInputStream()));
             String inputLine, outputLine = null;
             String path = "/simple";
+            outputStream = clientSocket.getOutputStream();
             while ((inputLine = in.readLine()) != null) {
                 if(inputLine.startsWith("G") && inputLine.contains("?")){
                     name = inputLine.split(" ")[1].split("=")[1];
@@ -95,7 +98,12 @@ public class HttpServer {
         serverSocket.close();
     }
 
-    private static String service(String name){
+    /**
+     * Consulta el hashMap y extrae el tipo de servicio a mostrar
+     * @param name nombre del servicio
+     * @return servicio a mostrar
+     */
+    private static String service(String name) throws IOException {
         Services servicio = services.get(name);
         return servicio.head() + servicio.body();
     }
@@ -180,7 +188,16 @@ public class HttpServer {
                 "</html>";
     }
 
+    /**
+     * añade los posibles servicios al hashMap
+     * @param s llave a usar
+     * @param webService tipo del servicio
+     */
     public void addService(String s, Services webService) {
         services.put(s, webService);
+    }
+
+    public OutputStream getOutputStream() {
+        return outputStream;
     }
 }

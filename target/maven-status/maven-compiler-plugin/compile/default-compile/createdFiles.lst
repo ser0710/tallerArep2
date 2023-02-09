@@ -7,3 +7,4 @@ edu\escuelaing\arep\app\services\Web404.class
 edu\escuelaing\arep\app\Cache.class
 edu\escuelaing\arep\app\HttpConnectionExample.class
 edu\escuelaing\arep\app\services\WebJs.class
+edu\escuelaing\arep\app\services\WebImg.class

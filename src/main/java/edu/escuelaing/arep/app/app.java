@@ -1,9 +1,6 @@
 package edu.escuelaing.arep.app;
 
-import edu.escuelaing.arep.app.services.Web404;
-import edu.escuelaing.arep.app.services.WebCss;
-import edu.escuelaing.arep.app.services.WebJs;
-import edu.escuelaing.arep.app.services.WebService;
+import edu.escuelaing.arep.app.services.*;
 
 import java.io.IOException;
 
@@ -15,6 +12,7 @@ public class app {
         server.addService("/404", new Web404());
         server.addService("/css", new WebCss());
         server.addService("/js", new WebJs());
+        server.addService("/img", new WebImg());
         server.run(args);
     }
 }
