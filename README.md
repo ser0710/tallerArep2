@@ -31,11 +31,10 @@ mvn clean package exec:java -D"exec.mainClass"="edu.escuelaing.arep.app.app"
 ```
 
 Una vez veamos el mensaje de "Listo para recbir ..."
-entramos al buscador de preferencia aqui podremos decidir que servicio consumir
+entramos al buscador de preferencia
 si buscamos la url http://localhost:35000/web podremos acceder al buscador de 
-peliculas, en caso de querer ver el archivo css acederemos a http://localhost:35000/css
-para el javascript usaremos http://localhost:35000/js, finalmente para visualizar
-una imagen usamos http://localhost:35000/img. En caso de agregar una url no 
+peliculas, el cual contiene sus funcionalidades en un archivo JS, cuenta
+con una imagen de ejemplo y un sencillo css. En caso de agregar una url no 
 valida veremos un mensaje de pagina no encontrada.
 
 

@@ -10,9 +10,9 @@ public class app {
         HttpServer server = HttpServer.getInstance();
         server.addService("/web", new WebService());
         server.addService("/404", new Web404());
-        server.addService("/css", new WebCss());
-        server.addService("/js", new WebJs());
-        server.addService("/img", new WebImg());
+        server.addService("/style.css", new WebCss());
+        server.addService("/app.js", new WebJs());
+        server.addService("/imagen.jpg", new WebImg());
         server.run(args);
     }
 }
